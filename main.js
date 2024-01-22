@@ -1,7 +1,8 @@
 class Gameboard {
   constructor() {
     this.cells = [0, 0, 0, 0, 0, 0, 0, 0, 0];
-    this.availableCells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.availableCells = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2", "C3"];
+    //this.availableCells = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   }
   //each cell on array/table has a value of 0, 1 or 2 (available, player1 player2)}
 }
@@ -22,7 +23,7 @@ class Player {
     game.board.cells[selection] = this.number;
     //3. display the board
     showBoard();
-    //4. end this player's turn and begin other player's turn
+    //4. end this player's turn
     this.isTurn = false;
   }
   play(cell) {
@@ -30,9 +31,9 @@ class Player {
     game.board.availableCells.forEach((x) => {
       if (x == cell) {
         console.log(game.board.availableCells.splice[x]);
-    } else {
+      } else {
         //try this.play again
-    }
+      }
     });
 
     if (cell > -1 && cell < 9) {
@@ -55,6 +56,13 @@ function newGame() {
 }
 
 function showBoard() {
+  if (game.p1.isTurn) {
+    console.log(`It is ${game.p1.name}'s Turn`);
+  }
+  if (game.p2.isTurn) {
+    console.log(`It is ${game.p2.name}'s Turn`);
+  }
+
   console.log(`${game.p1.name} | ${game.p2.name}
 ${game.board.cells[0]} ${game.board.cells[1]} ${game.board.cells[2]}
 ${game.board.cells[3]} ${game.board.cells[4]} ${game.board.cells[5]}
