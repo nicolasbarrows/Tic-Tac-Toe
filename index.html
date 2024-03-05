@@ -1,23 +1,34 @@
-<head>
-  <link rel="stylesheet" href="\style.css" />
-</head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TicTacToe by Nicolas Barrows</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
 <body>
-  <table id="gameboard">
-    <tr>
-      <td id="A1-0"></td>
-      <td id="A2_1"> </td>
-      <td id="A3_2"></td>
-    </tr>
-    <tr>
-      <td id="B1_3"></td>
-      <td id="B2_4"></td>
-      <td id="B3_5"></td>
-    </tr>
-    <tr>
-      <td id="C1_6"></td>
-      <td id="C2_7"></td>
-      <td id="C3_8"></td>
-    </tr>
-  </table>
+    <container class="mainpage">
+    <section class="playerNames">
+      <section id="p1">Player 1</section>
+      <section id="p2">Player 2</section>
+    </section>
+    <section class="gameboard">
+      <container class="gametile" id="0"></container>
+      <container class="gametile" id="1"></container>
+      <container class="gametile" id="2"></container>
+      <container class="gametile" id="3"></container>
+      <container class="gametile" id="4"></container>
+      <container class="gametile" id="5"></container>
+      <container class="gametile" id="6"></container>
+      <container class="gametile" id="7"></container>
+      <container class="gametile" id="8"></container>
+    </section>
+    <button class="button" id="newGameBtn">New Game</button>
+  </container>
+  <container class="popup">
+    <button class="button" id="newGameBtn">New Game</button>
+  </container>
   <script src="main.js"></script>
 </body>

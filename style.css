@@ -1,5 +1,122 @@
-table {
-    width: 600px;
-    height: 600px;
-    border: 5px solid #000000;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
+
+body {
+width: 100%;
+height: 100vh;
+background: #fff;
+display: flex;
+flex-direction:column;
+justify-content: center;
+align-items: center;
+position:relative;
+}
+
+.mainpage{
+display: flex;
+flex-direction:column;
+justify-content: center;
+align-items: center;
+position:relative;
+}
+
+.gameboard {
+    width: 80vmin;
+    height: 80vmin;
+    background: #fff;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: 3;
+}
+
+.gametile {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background:white;
+    width: 24vmin;
+    height: 24vmin;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+    font-size: 10em;
+    border-radius: 30px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #000000;
+}
+.gametile:hover {
+    box-shadow: 0px 0px 10px #666666;
+}
+
+.popup {
+    position:absolute;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:rgba(255, 255, 255, .9);
+    box-shadow: 0px 0px 10px #666666;
+    width: 70vmin;
+    height: 70vmin;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 500;
+    border-radius: 50px;
+    border-color: #000000;
+    visibility: hidden;
+}
+
+.button {
+    color:#ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    background: black;
+    padding: 15px 40px;
+    border-radius: 50px;
+    cursor: pointer;
+    border: none;
+}
+
+table {
+    width: 60vw;
+    height: 60vw;
+    border: 15px solid #ffffff;
+}
+tr {
+    height:20vw;
+    width:60vw;
+}
+td {
+    border: 15px solid #000000;
+    width: 20vw;
+    height: 20vw;
+    text-align: center;
+    font-size: 100px;
+    margin: auto;
+}
+
+label {
+    font-size: 1.5rem;
+    margin: 1.5rem;
+}
+
+input {
+    height: 5vmin;
+    width: 50vmin;
+    text-align: center;
+}
+
+.playerNames {
+    width:60vw;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    font-size: 50px;
+}
+
+
