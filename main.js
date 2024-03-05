@@ -127,18 +127,6 @@ function startGame() {
 function showBoard() {
   let p1Marker = "X";
   let p2Marker = "O";
-  //display player names on console/DOM
-
-  if (game.p1.isTurn) {
-    //console.log(`It is ${game.p1.name}'s Turn`);
-    document.getElementById("p1").style.backgroundColor = "#2A9D8F";
-    document.getElementById("p2").style.backgroundColor = "#EEEEEE";
-  }
-  if (game.p2.isTurn) {
-    //console.log(`It is ${game.p2.name}'s Turn`);
-    document.getElementById("p1").style.backgroundColor = "#EEEEEE";
-    document.getElementById("p2").style.backgroundColor = "#E9C46A";
-  }
 
   //display board on console
   console.log(`${game.p1.name} | ${game.p2.name}
@@ -160,12 +148,26 @@ ${game.board.cells[6]} ${game.board.cells[7]} ${game.board.cells[8]}`);
       }
     }
   });
+
 //highlight the winning cells
-  if (isGameOver(game)[0]) {
-    let winningTiles = isGameOver(game).slice(1);
-    winningTiles.forEach((e) => document.getElementById(`${e}`).style.backgroundColor = "#E9C46A");
-    }
+if (isGameOver(game)[0]) {
+  let winningTiles = isGameOver(game).slice(1);
+  winningTiles.forEach((e) => document.getElementById(`${e}`).style.backgroundColor = "#E9C46A");
+  endTurn() // this makes sure the winners name is highlighted at end of game
+}
+
+  //display player names on console/DOM
+  if (game.p1.isTurn) {
+    //console.log(`It is ${game.p1.name}'s Turn`);
+    document.getElementById("p1").style.backgroundColor = "#2A9D8F";
+    document.getElementById("p2").style.backgroundColor = "#EEEEEE";
   }
+  if (game.p2.isTurn) {
+    //console.log(`It is ${game.p2.name}'s Turn`);
+    document.getElementById("p1").style.backgroundColor = "#EEEEEE";
+    document.getElementById("p2").style.backgroundColor = "#E9C46A";
+  }
+}
 
 function listen() {
   //add eventListeners to the DOM to check for a click for cell selection
