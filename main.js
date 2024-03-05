@@ -122,7 +122,6 @@ function startGame() {
   const gameSetupPopup = document.querySelector(".popup");
   gameSetupPopup.style.visibility = "hidden";
   document.querySelector(`#newGameBtn`).addEventListener(`click`, resetGame);
-  //showBoard();
 }
 
 function showBoard() {
@@ -132,13 +131,13 @@ function showBoard() {
 
   if (game.p1.isTurn) {
     //console.log(`It is ${game.p1.name}'s Turn`);
-    document.getElementById("p1").style.backgroundColor = "yellow";
-    document.getElementById("p2").style.backgroundColor = "white";
+    document.getElementById("p1").style.backgroundColor = "#2A9D8F";
+    document.getElementById("p2").style.backgroundColor = "#EEEEEE";
   }
   if (game.p2.isTurn) {
     //console.log(`It is ${game.p2.name}'s Turn`);
-    document.getElementById("p1").style.backgroundColor = "white";
-    document.getElementById("p2").style.backgroundColor = "yellow";
+    document.getElementById("p1").style.backgroundColor = "#EEEEEE";
+    document.getElementById("p2").style.backgroundColor = "#E9C46A";
   }
 
   //display board on console
@@ -152,14 +151,21 @@ ${game.board.cells[6]} ${game.board.cells[7]} ${game.board.cells[8]}`);
     if (document.getElementById(index).childNodes.length == 0) {
       if (value == 1) {
         const cellText = document.createTextNode(`${p1Marker}`);
-        document.getElementById(index).appendChild(cellText);
+        document.getElementById(index).appendChild(cellText)
+        document.getElementById(index).style.backgroundColor = "#2A9D8F";
       } else if (value == 2) {
         const cellText = document.createTextNode(`${p2Marker}`);
         document.getElementById(index).appendChild(cellText);
+        document.getElementById(index).style.backgroundColor = "#F4A261";
       }
     }
   });
-}
+//highlight the winning cells
+  if (isGameOver(game)[0]) {
+    let winningTiles = isGameOver(game).slice(1);
+    winningTiles.forEach((e) => document.getElementById(`${e}`).style.backgroundColor = "#E9C46A");
+    }
+  }
 
 function listen() {
   //add eventListeners to the DOM to check for a click for cell selection
@@ -213,10 +219,10 @@ function isGameOver(game) {
 }
 
 function gameOver() {
-  let winningTiles = isGameOver(game).slice(1);
-  winningTiles.forEach((e) => document.getElementById(`${e}`).style.backgroundColor = "yellow");
+  //let winningTiles = isGameOver(game).slice(1);
+  //winningTiles.forEach((e) => document.getElementById(`${e}`).style.backgroundColor = "#E9C46A");
   //create game over / start new game popup
-  document.querySelector("#newGameBtn").style.backgroundColor = "white";
+  document.querySelector("#newGameBtn").style.visibility = "hidden";
   const gameOverPopup = document.querySelector(".popup");
   gameOverPopup.innerHTML = `<button class="button" id="newGameBtn">New Game</button>`;
 
