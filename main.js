@@ -31,7 +31,7 @@ class Player {
 
   turn(selectedCell) {
     //what happens when a player selects a cell
-    //1. take in a cell selection [via listen()]
+    //1. take in a cell selection [via listen()] (relocated to end of turn)
     //2. validate selection
     let selection = this.play(this.number, selectedCell);
     if (selection == "err") {
